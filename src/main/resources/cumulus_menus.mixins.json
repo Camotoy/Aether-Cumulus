@@ -11,8 +11,8 @@
   "client": [
     "client.MusicManagerMixin",
     "client.accessor.CreateWorldScreenAccessor",
-    "client.accessor.ScreenAccessor",
     "client.accessor.RealmsPlayerScreenAccessor",
+    "client.accessor.ScreenAccessor",
     "client.accessor.TabButtonAccessor",
     "client.accessor.TitleScreenAccessor"
   ]
