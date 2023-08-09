@@ -9,6 +9,12 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 @Mixin(CreateWorldScreen.class)
 public interface CreateWorldScreenAccessor {
     @Mutable
+    @Accessor("LIGHT_DIRT_BACKGROUND")
+    static void cumulus$setLightDirtBackground(ResourceLocation location) {
+        throw new AssertionError();
+    }
+    
+    @Mutable
     @Accessor("HEADER_SEPERATOR")
     static void cumulus$setHeaderSeparator(ResourceLocation location) {
         throw new AssertionError();

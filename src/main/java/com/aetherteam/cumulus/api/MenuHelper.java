@@ -2,6 +2,7 @@ package com.aetherteam.cumulus.api;
 
 import com.aetherteam.cumulus.CumulusConfig;
 import com.aetherteam.cumulus.mixin.mixins.client.accessor.TitleScreenAccessor;
+import net.minecraft.client.gui.components.SplashRenderer;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.sounds.Music;
@@ -20,7 +21,7 @@ public class MenuHelper {
     @Nullable
     private Menu.Background fallbackBackground = null;
     @Nullable
-    private String lastSplash = null;
+    private SplashRenderer lastSplash = null;
     private boolean shouldFade = true;
 
     /**
@@ -157,18 +158,18 @@ public class MenuHelper {
     }
 
     /**
-     * @return The {@link String} for the last displayed splash.
+     * @return The {@link SplashRenderer} for the last displayed splash.
      */
     @Nullable
-    public String getLastSplash() {
+    public SplashRenderer getLastSplash() {
         return this.lastSplash;
     }
 
     /**
      * Sets the last displayed splash.
-     * @param lastSplash The splash {@link String}.
+     * @param lastSplash The splash {@link SplashRenderer}.
      */
-    public void setLastSplash(@Nullable String lastSplash) {
+    public void setLastSplash(@Nullable SplashRenderer lastSplash) {
         this.lastSplash = lastSplash;
     }
 
@@ -177,7 +178,7 @@ public class MenuHelper {
      * @param originalSplash The original splash {@link String} to transfer to a new screen.
      * @param newScreen The new {@link TitleScreen} to get the splash.
      */
-    public void migrateSplash(String originalSplash, TitleScreen newScreen) {
+    public void migrateSplash(SplashRenderer originalSplash, TitleScreen newScreen) {
         TitleScreenAccessor newScreenAccessor = (TitleScreenAccessor) newScreen;
         newScreenAccessor.cumulus$setSplash(originalSplash);
     }
@@ -188,7 +189,7 @@ public class MenuHelper {
      * @param condition The {@link Calendar} {@link Predicate} for when to display the splash.
      * @param splash The {@link String} for the splash to display.
      */
-    public void setCustomSplash(TitleScreen screen, Predicate<Calendar> condition, String splash) {
+    public void setCustomSplash(TitleScreen screen, Predicate<Calendar> condition, SplashRenderer splash) {
         TitleScreenAccessor screenAccessor = (TitleScreenAccessor) screen;
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
